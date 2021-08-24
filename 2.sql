@@ -1,0 +1,1 @@
+SELECT distinct top.order_id,count(distinct top.order_product_id) as Number_Of_Order, CASE WHEN too.sales_type ='Normal' THEN ROUND(sum(distinct top.normal_price),2) ELSE ROUND(sum(distinct top.promotion_price),2) END as Total_Sales_Amount FROM `tbl_order_products` as top join tbl_orders as too group by top.order_id
